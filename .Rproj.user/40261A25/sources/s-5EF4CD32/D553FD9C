@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1518079828899.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D553FD9C",
+    "lastKnownWriteTime" : 1518534733,
+    "last_content_update" : 1518534733188,
+    "path" : "~/Research/MomX/Momoshop/utils.R",
+    "project_path" : "utils.R",
+    "properties" : {
+        "cursorPosition" : "38,9",
+        "scrollLine" : "21",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
