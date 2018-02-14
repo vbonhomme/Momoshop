@@ -64,6 +64,21 @@ image_threshold <- function(image, threshold){
   x %>% image_read
 }
 
+# given an image draw the gg color histogram
+image_histogram <-
+  function(image, sampled_geometry=100){
+
+    img <- image %>% image_resize(sampled_geometry) %>% `[[`(1)
+    n <- img %>% dim %>% `[`(-1) %>% prod
+    data.frame(x=img %>% array %>% as.integer(),
+               f=rep(c("r", "g", "b"), each=n)) %>%
+      ggplot() + aes(x=x, fill=f) + geom_histogram(alpha=0.25) +
+      labs(x="", y="") +
+      scale_x_continuous(breaks=c(0, 128, 255)) +
+      scale_y_continuous(breaks = NULL) +
+      theme_light() + theme(legend.position="none")
+  }
+
 # constants ------------------------------------------------
 # to lighten the shiny part
 
@@ -71,6 +86,28 @@ useful_channels <-
   c("All channels", "Alpha", "Blue", "Cyan", "Gray", "Green",
     "Hue", "Lightness", "Luminance", "Luminosity",
     "Magenta", "Red", "Saturation", "Yellow")
+
+# domestic -------------------------------------------------
+# remove path, keep filename
+trim_path <- function(x){
+  x %>% strsplit("/") %>% sapply(function(.x) .x[length(.x)])
+}
+
+# remove extension, keep filename
+trim_ext <- function(x){
+  x %>% gsub("\\.[[:alnum:]]{3}$", "", .)
+}
+
+# remove path and extension, keep filename
+trim_both <- function(x){
+  x %>% trim_path() %>% trim_ext()
+}
+
+# trim one suffix from filename
+trim_suffix <- function(x){
+  x %>% gsub("(.*)(_[[:alnum:]]*)(\\.([[:alnum:]]){3}$)", "\\1\\3", .)
+}
+
 
 
 # fridge ---------------------------------------------------
