@@ -1,7 +1,11 @@
-
-tmp/
 .Rproj.user
 .Rhistory
 .RData
 
+tmp/
+
+
 .Rproj*
+
+\\..*
+
