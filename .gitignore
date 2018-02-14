@@ -2,10 +2,6 @@
 .Rhistory
 .RData
 
-tmp/
 
 
-.Rproj*
-
-\\..*
-
+.Rproj.user/40261A25/sources/s-5EF4CD32/D553FD9C-contents
